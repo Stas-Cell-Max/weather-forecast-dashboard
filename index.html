@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Weather Dashboard</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header>
+    <h1>Weather Dashboard</h1>
+</header>
+<main>
+    <aside id="search-section">
+        <h2>Search for a City:</h2>
+        <input type="text" id="city-input" placeholder="Enter city name">
+        <button id="search-button">Search</button>
+        <div id="search-history">
+            //Search history will be dynamically populated here 
+        </div>
+    </aside>
+    <section id="weather-section">
+        <div id="current-weather">
+           //Current weather will be dynamically populated here 
+        </div>
+        <div id="forecast">
+            <h2>5-Day Forecast:</h2>
+            <div class="forecast-day" id="day1">
+                //Day 1 forecast will be dynamically populated here 
+            </div>
+            <div class="forecast-day" id="day2">
+                // Day 2 forecast will be dynamically populated here 
+            </div>
+            <div class="forecast-day" id="day3">
+                // Day 3 forecast will be dynamically populated here 
+            </div>
+            <div class="forecast-day" id="day4">
+                //Day 4 forecast will be dynamically populated here 
+            </div>
+            <div class="forecast-day" id="day5">
+                //Day 5 forecast will be dynamically populated here 
+            </div>
+        </div>
+    </section>
+</main>
+<footer>
+    <!-- Optional footer content here -->
+</footer>
+<script src="script.js"></script>
+</body>
+</html>
+
