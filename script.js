@@ -99,12 +99,21 @@ function displayWeatherData(weatherData) {
 
 // Function to update search history
 function updateSearchHistory(cityName) {
+
+    console.log('Called updateSearchHistory with:', cityName); // Debugging
+
     let searchHistory = JSON.parse(localStorage.getItem('searchHistory')) || [];
+
+    console.log('Current search history before update:', searchHistory); // Debugging
+
     if (!searchHistory.includes(cityName)) {
         searchHistory.unshift(cityName); // Add city to the beginning of the array
-        searchHistory = searchHistory.slice(0, 5); // Limit history to 5 cities
+        searchHistory = searchHistory.slice(0, 8); // Limit history to 5 cities
         localStorage.setItem('searchHistory', JSON.stringify(searchHistory));
     }
+     
+    console.log('Updated search history:', searchHistory); // Debugging
+    
     displaySearchHistory();
 }
 
