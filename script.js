@@ -111,10 +111,10 @@ function updateSearchHistory(cityName) {
 // Function to display search history
 function displaySearchHistory() {
     const searchHistory = JSON.parse(localStorage.getItem('searchHistory')) || [];
-    searchHistoryDiv.innerHTML = searchHistory.map(city => `<button class="history-btn">${city}</button>`).join('');
+    searchHistoryDiv.innerHTML = searchHistory.map(city => `<button class="history-button">${city}</button>`).join('');
 
     // Add click event listener to each history button
-    document.querySelectorAll('.history-btn').forEach(button => {
+    document.querySelectorAll('.history-button').forEach(button => {
         button.addEventListener('click', function() {
             fetchWeatherData(this.textContent);
         });

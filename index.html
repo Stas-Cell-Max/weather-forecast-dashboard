@@ -1,44 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Metadata and linking external CSS -->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Weather Dashboard</title>
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+     
+    <!-- Header Section -->
 <header>
     <h1>Weather Dashboard</h1>
 </header>
+    <!-- Main Content Area -->
 <main>
+    <!-- Sidebar for City Search -->
     <aside id="search-section">
         <h2>Search for a City:</h2>
         <input type="text" id="city-input" placeholder="Enter city name">
         <button id="search-button">Search</button>
         <div id="search-history">
-            //Search history will be dynamically populated here 
+        <!-- Search history will be dynamically populated here -->
         </div>
     </aside>
+
+    <!-- Weather Display Section -->
     <section id="weather-section">
         <div id="current-weather">
-           //Current weather will be dynamically populated here 
+    <!-- Current weather will be dynamically populated here --> 
         </div>
         <div id="forecast">
             <h2>5-Day Forecast:</h2>
+
+             <!-- Individual Forecast Days -->
             <div class="forecast-day" id="day1">
-                //Day 1 forecast will be dynamically populated here 
+                 <!-- Day 1 forecast will be dynamically populated here -->
             </div>
             <div class="forecast-day" id="day2">
-                // Day 2 forecast will be dynamically populated here 
+                 <!-- Day 2 forecast will be dynamically populated here -->
             </div>
             <div class="forecast-day" id="day3">
-                // Day 3 forecast will be dynamically populated here 
+                 <!-- Day 3 forecast will be dynamically populated here -->
             </div>
             <div class="forecast-day" id="day4">
-                //Day 4 forecast will be dynamically populated here 
+                 <!-- Day 4 forecast will be dynamically populated here -->
             </div>
             <div class="forecast-day" id="day5">
-                //Day 5 forecast will be dynamically populated here 
+                 <!-- Day 5 forecast will be dynamically populated here -->
             </div>
         </div>
     </section>
