@@ -18,7 +18,7 @@ const searchHistoryDiv = document.getElementById('search-history');
 
 
 // API Configuration
-const openWeatherApiKey = 'MY_API_KEY'; // Replace with the actual API key
+const openWeatherApiKey = '67a37788d01048d1758476fd88ff14f9'; // Replace with the actual API key
 const openWeatherApiBaseUrl = 'https://api.openweathermap.org/data/2.5';
 
 
@@ -72,8 +72,29 @@ async function fetchWeatherData(cityName) {
 }
 
 // Function to display the weather data (to be implemented)
-function displayWeatherData(forecastData) {
-    // Update the current weather and forecast elements with the data
-    // ...
+function displayWeatherData(weatherData) {
+    // Display current weather
+    const currentWeather = weatherData.list[0];
+    currentWeatherDiv.innerHTML = `
+        <h3>${weatherData.city.name}</h3>
+        <p><strong>Date:</strong> ${new Date(currentWeather.dt * 1000).toLocaleDateString()}</p>
+        <p><strong>Temp:</strong> ${currentWeather.main.temp} °C</p>
+        <p><strong>Humidity:</strong> ${currentWeather.main.humidity}%</p>
+        <p><strong>Wind Speed:</strong> ${currentWeather.wind.speed} m/s</p>
+        <img src="https://openweathermap.org/img/w/${currentWeather.weather[0].icon}.png" alt="Weather icon">
+    `;
+
+    // Display 5-day forecast
+    for (let i = 0; i < forecastDivs.length; i++) {
+        const forecastDay = weatherData.list[i * 8]; // Approximation for daily forecast
+        forecastDivs[i].innerHTML = `
+            <h4>${new Date(forecastDay.dt * 1000).toLocaleDateString()}</h4>
+            <p><strong>Temp:</strong> ${forecastDay.main.temp} °C</p>
+            <p><strong>Humidity:</strong> ${forecastDay.main.humidity}%</p>
+            <p><strong>Wind Speed:</strong> ${forecastDay.wind.speed} m/s</p>
+            <img src="https://openweathermap.org/img/w/${forecastDay.weather[0].icon}.png" alt="Weather icon">
+        `;
+    }
 }
+
 
