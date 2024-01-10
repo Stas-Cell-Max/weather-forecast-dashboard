@@ -20,3 +20,60 @@ const searchHistoryDiv = document.getElementById('search-history');
 // API Configuration
 const openWeatherApiKey = 'MY_API_KEY'; // Replace with the actual API key
 const openWeatherApiBaseUrl = 'https://api.openweathermap.org/data/2.5';
+
+
+
+// Event listeners
+
+// Event listener for the search button
+searchButton.addEventListener('click', function() {
+    const cityName = cityInput.value.trim();
+    if (cityName) {
+        fetchWeatherData(cityName);
+        cityInput.value = ''; // Clearing the input field after search
+    } else {
+        alert('Please enter a city name');
+    }
+});
+
+// Event listener for the Enter key in the city input
+cityInput.addEventListener('keypress', function(event) {
+    if (event.key === 'Enter') {
+        event.preventDefault(); 
+        searchButton.click(); 
+    }
+});
+
+// Fetching Weather Data Functions
+// Function to fetch weather data
+async function fetchWeatherData(cityName) {
+    try {
+        // Fetching latitude and longitude for the city
+        const coordResponse = await fetch(`${openWeatherApiBaseUrl}/weather?q=${cityName}&appid=${openWeatherApiKey}`);
+        if (!coordResponse.ok) {
+            throw new Error(`Error: ${coordResponse.status}`);
+        }
+        const coordData = await coordResponse.json();
+        const { lat, lon } = coordData.coord;
+
+        // Fetching weather forecast using the coordinates
+        const forecastResponse = await fetch(`${openWeatherApiBaseUrl}/forecast?lat=${lat}&lon=${lon}&appid=${openWeatherApiKey}`);
+        if (!forecastResponse.ok) {
+            throw new Error(`Error: ${forecastResponse.status}`);
+        }
+        const forecastData = await forecastResponse.json();
+
+        // Processing and displaying the fetched weather data
+        displayWeatherData(forecastData);
+    } catch (error) {
+        console.error("Error fetching weather data: ", error);
+        // Display an error message to the user
+    }
+}
+
+// Function to display the weather data (to be implemented)
+function displayWeatherData(forecastData) {
+    // Update the current weather and forecast elements with the data
+    // ...
+}
+
