@@ -97,4 +97,31 @@ function displayWeatherData(weatherData) {
     }
 }
 
+// Function to update search history
+function updateSearchHistory(cityName) {
+    let searchHistory = JSON.parse(localStorage.getItem('searchHistory')) || [];
+    if (!searchHistory.includes(cityName)) {
+        searchHistory.unshift(cityName); // Add city to the beginning of the array
+        searchHistory = searchHistory.slice(0, 5); // Limit history to 5 cities
+        localStorage.setItem('searchHistory', JSON.stringify(searchHistory));
+    }
+    displaySearchHistory();
+}
+
+// Function to display search history
+function displaySearchHistory() {
+    const searchHistory = JSON.parse(localStorage.getItem('searchHistory')) || [];
+    searchHistoryDiv.innerHTML = searchHistory.map(city => `<button class="history-btn">${city}</button>`).join('');
+
+    // Add click event listener to each history button
+    document.querySelectorAll('.history-btn').forEach(button => {
+        button.addEventListener('click', function() {
+            fetchWeatherData(this.textContent);
+        });
+    });
+}
+
+// Call this function when the page loads to display existing search history
+displaySearchHistory();
+
 
