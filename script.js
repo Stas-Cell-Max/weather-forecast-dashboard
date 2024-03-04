@@ -72,12 +72,17 @@ async function fetchWeatherData(cityName) {
 
 // Function to display the weather data (to be implemented)
 function displayWeatherData(weatherData) {
+
+    // Convert Kelvin to Celsius function
+    function kelvinToCelsius(kelvin) {
+        return (kelvin - 273.15).toFixed(2); // Round to 2 decimal places
+    }
     // Display current weather
     const currentWeather = weatherData.list[0];
     currentWeatherDiv.innerHTML = `
         <h3>${weatherData.city.name}</h3>
         <p><strong>Date:</strong> ${new Date(currentWeather.dt * 1000).toLocaleDateString()}</p>
-        <p><strong>Temp:</strong> ${currentWeather.main.temp} °C</p>
+        <p><strong>Temp:</strong> ${kelvinToCelsius(currentWeather.main.temp)} °C</p>
         <p><strong>Humidity:</strong> ${currentWeather.main.humidity}%</p>
         <p><strong>Wind Speed:</strong> ${currentWeather.wind.speed} m/s</p>
         <img src="https://openweathermap.org/img/w/${currentWeather.weather[0].icon}.png" alt="Weather icon">

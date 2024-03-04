@@ -6,99 +6,101 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Updated font family */
     background-color: #f4f4f4;
     color: #333;
 }
 
 header {
-    background-color: #1E90FF;
+    background-color: #083856;
     color: white;
-    padding: 10px 0;
+    padding: 20px 0; /* Increased padding for better spacing */
     text-align: center;
+    font-size: 1.5em; /* Increased font size */
 }
 
 main {
     display: flex;
     justify-content: space-around;
     padding: 20px;
+    flex-wrap: wrap; /* Wrap items for responsiveness */
+}
+
+#search-section, #weather-section {
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(45, 97, 106, 0.2); /* Subtle shadow */
+    border-radius: 8px; /* Rounded corners */
 }
 
 #search-section {
-    width: 20%;
-    background-color: #fff;
-    padding: 20px;
-    box-shadow: 0 0 5px rgba(0,0,0,0.3);
+    width: 18%; /* Adjusted for better spacing */
+    margin-bottom: 20px; /* Spacing between sections on wrap */
 }
 
-#search-section h2 {
+#weather-section {
+    width: 80%;
+    margin-bottom: 20px;  /* Adjusted for better spacing */
+}
+
+#search-section h2, #weather-section h2 {
     margin-bottom: 15px;
 }
 
-#city-input {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
+input, button {
+    padding: 12px; /* Increased padding for better touch targets */
+    margin-bottom: 10px; /* Consistent margin */
+    width: 100%; /* Full-width elements */
+    border: 1px solid #ccc; /* Border for input */
+    border-radius: 4px; /* Rounded corners */
 }
 
-#search-button {
-    width: 100%;
-    padding: 10px;
-    background-color: #1E90FF;
+#search-button, .history-button {
+    background-color: #083856;
     color: white;
     border: none;
     cursor: pointer;
 }
 
-#search-button:hover {
-    background-color: #4169E1;
+#search-button:hover, .history-button:hover {
+    background-color: #7fb0ce ;/* Consistent hover effect */
+    color: #fff; /* Ensure text remains white */
+}
+
+.history-button {
+    background-color: #5692b7 ;
+    text-align: left; /* Align text to the left */
 }
 
 #search-history {
     margin-top: 20px;
 }
 
-.history-button {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 5px;
-    background-color: #121315;
-    border: none;
-    cursor: pointer;
-    text-align: left;
-}
-
-.history-button:hover {
-    background-color: #ccc;
-}
-
-#weather-section {
-    width: 75%;
-    background-color: #fff;
-    padding: 20px;
-    box-shadow: 0 0 5px rgba(0,0,0,0.3);
-}
-
-#current-weather {
-    margin-bottom: 20px;
-}
-
 .forecast-day {
     display: inline-block;
     width: 18%;
-    background-color: #eee;
-    margin-right: 1%;
-    padding: 10px;
+    background-color: #ccdae3 ;
+    margin: 0 1% 15px 1%; /* Margin for spacing */
+    padding: 8px;
     text-align: center;
-}
-
-/* Last child of forecast-day should not have a margin to the right */
-.forecast-day:last-child {
-    margin-right: 0;
+    border-radius: 4px; /* Rounded corners */
 }
 
 footer {
     text-align: center;
-    padding: 10px 0;
+    padding: 20px 0; /* Increased padding */
     margin-top: 20px;
+    font-size: 0.9em; /* Adjusted font size */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    #search-section, #weather-section {
+        width: 100%; /* Full width for smaller screens */
+        margin-bottom: 20px; /* Spacing between sections */
+    }
+
+    .forecast-day {
+        width: 40%; /* Adjust for smaller screens */
+    }
 }
