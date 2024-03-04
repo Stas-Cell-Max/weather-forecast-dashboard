@@ -62,7 +62,15 @@ so that I can plan my trips accordingly.
 
 ## Credits
 
-(Any collaborators or acknowledgements to resources used)
+This project was made possible thanks to the following resources:
+
+- Weather data provided by [OpenWeatherMap API](https://openweathermap.org/api).
+- Weather icons used under license from [Icons8](https://icons8.com/).
+- Front-end framework provided by [Bootstrap](https://getbootstrap.com/).
+- Code snippets and inspiration drawn from [MDN Web Docs](https://developer.mozilla.org/).
+
+Special thanks to all the individual contributors and developers from the community who have provided feedback and suggestions to improve this application.
+
 
 ## License
 

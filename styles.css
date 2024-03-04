@@ -78,7 +78,7 @@ input, button {
 
 .forecast-day {
     display: inline-block;
-    width: 18%;
+    width: 17%;
     background-color: #ccdae3 ;
     margin: 0 1% 15px 1%; /* Margin for spacing */
     padding: 8px;
@@ -101,6 +101,6 @@ footer {
     }
 
     .forecast-day {
-        width: 40%; /* Adjust for smaller screens */
+        justify-content: center; /* Adjust for smaller screens */
     }
 }
