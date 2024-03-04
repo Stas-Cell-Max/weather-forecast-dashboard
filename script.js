@@ -22,7 +22,6 @@ const openWeatherApiKey = '67a37788d01048d1758476fd88ff14f9'; // Replace with th
 const openWeatherApiBaseUrl = 'https://api.openweathermap.org/data/2.5';
 
 
-
 // Event listeners
 
 // Event listener for the search button
@@ -95,24 +94,18 @@ function displayWeatherData(weatherData) {
             <img src="https://openweathermap.org/img/w/${forecastDay.weather[0].icon}.png" alt="Weather icon">
         `;
     }
+    updateSearchHistory(weatherData.city.name);
 }
 
 // Function to update search history
 function updateSearchHistory(cityName) {
-
-    console.log('Called updateSearchHistory with:', cityName); // Debugging
-
     let searchHistory = JSON.parse(localStorage.getItem('searchHistory')) || [];
-
-    console.log('Current search history before update:', searchHistory); // Debugging
 
     if (!searchHistory.includes(cityName)) {
         searchHistory.unshift(cityName); // Add city to the beginning of the array
         searchHistory = searchHistory.slice(0, 8); // Limit history to 5 cities
         localStorage.setItem('searchHistory', JSON.stringify(searchHistory));
     }
-     
-    console.log('Updated search history:', searchHistory); // Debugging
     
     displaySearchHistory();
 }
